@@ -20,19 +20,24 @@
 					<td>Gambar</td>
 					<td>Aksi</td>
 				</tr>
-				<tr>
-					<td>1</td>
-					<td style="word-wrap: break-word; width: 20%;">Script laravel cbt dan absensi dan blb aldankjbcc hak c ags </td>
-					<td>Script</td>
-					<td>Rp 1000000</td>
-					<td>10</td>
-					<td><img src="img/barang1.jpg" style="width: 200px;"></td>
-					<td>
-						<a href="/tokoku/edit" class="btn btn-primary"><i class="fas fa-edit"></i></a>
-						<a href="/tokoku/lihat" class="btn btn-success"><i class="fas fa-eye"></i></a>
-						<a href="/tokoku/hapus" class="btn btn-danger"><i class="fas fa-trash"></i></a>
-					</td>
-				</tr>
+				<?php $i=0;?>
+				@foreach($goods as $good)
+					<?php $i++;?>
+					<tr>
+						<td>{{$i}}</td>
+						<td style="word-wrap: break-word; width: 20%;">{{$good->good_name}}</td>
+						<td>{{$good->good_category}}</td>
+						<td>{{$good->good_price}}</td>
+						<td>{{$good->good_discount}}</td>
+						<td><img src="img/{{$good->good_image}}" style="width: 200px;"></td>
+						<td>
+							<a href="/tokoku/edit/{{$good->id}}" class="btn btn-primary"><i class="fas fa-edit"></i></a>
+							<a href="/tokoku/lihat/{{$good->id}}" class="btn btn-success"><i class="fas fa-eye"></i></a>
+							<a href="/tokoku/hapus/{{$good->id}}" class="btn btn-danger"><i class="fas fa-trash"></i></a>
+						</td>
+					</tr>
+				@endforeach
+
 			</table>
 		</div>
 	</div>

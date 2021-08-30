@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\GoodController;
 
 /*
 |--------------------------------------------------------------------------
@@ -40,6 +41,7 @@ Route::get('/editprofil/{id}',[UserController::class,'get_city'])->middleware('a
 Route::get('/editfoto', function () {return view('foto',	['url'=> '/profil']);})->middleware('auth');
 Route::post('/editfoto', [UserController::class,'ubahFoto'])->middleware('auth');
 Route::post('/editprofil',[UserController::class,'simpan'])->middleware('auth');
-Route::get('/tokoku', function (){return view('tokoku',['url'=>'/profil']);});
+Route::get('/tokoku', [GoodController::class,'lihat']);
 Route::get('/tokoku/tambah-barang', function (){return view('tambah-barang',['url'=>'/profil']);});
+Route::post('/tokoku/tambah-barang', [GoodController::class,'add']);
 
