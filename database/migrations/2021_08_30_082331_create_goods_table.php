@@ -22,6 +22,7 @@ class CreateGoodsTable extends Migration
             $table->string('good_discount')->nullable();
             $table->string('good_category');
             $table->text('good_desc');
+            $table->integer('good_stocks');
             $table->timestamps();
         });
     }
